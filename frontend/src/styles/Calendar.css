@@ -1,0 +1,13 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.calendar-main {
+  height: 100vh; 
+  width: calc(100vw - 100px);
+}
+
+.planby {
+  padding: 0px !important;
+}

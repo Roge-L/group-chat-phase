@@ -50,13 +50,13 @@ const PlanCreate = () => {
     }
 
     return (
-        <div>
-            <Popup trigger={<button>Make Plan</button>} modal="nested">
+        <div className='container'>
+            <Popup trigger={<button className='popup'>Make Plan</button>} modal="nested">
                 {
                     close => (
-                            <div className='container mt-5'>
+                            <div className='form-container'>
                             <h1 className='title'>Plan</h1>
-                            <p className='header'>Create a Plan</p>
+                            <h3 className='header'>Create a Plan</h3>
                             <form onSubmit={e => onSubmit(e)}>
                                 <div className='form-group'>
                                     <input
@@ -81,7 +81,7 @@ const PlanCreate = () => {
                                     </button>
                                 </div>
                                 <div className='form-group'>
-                                    <label>Date</label>
+                                    <label className='form-label'>Date</label>
                                     <input
                                         className='form-control'
                                         type='date'
@@ -93,7 +93,7 @@ const PlanCreate = () => {
                                     />
                                 </div>
                                 <div className='form-group'>
-                                    <label>Start Time</label>
+                                    <label className='form-label'>Start Time</label>
                                     <input
                                         className='form-control'
                                         type='time'
@@ -105,7 +105,7 @@ const PlanCreate = () => {
                                     />
                                 </div>
                                 <div className='form-group'>
-                                    <label>End Time</label>
+                                    <label className='form-label'>End Time</label>
                                     <input
                                         className='form-control'
                                         type='time'
@@ -116,8 +116,10 @@ const PlanCreate = () => {
                                     />
 
                                 </div>
-                                <button className='btn btn-primary' type='submit'>Make Plan</button>
-                                <div>
+                                <div className='form-group'>
+                                    <button className='form-btn' type='submit'>Make Plan</button>
+                                </div>
+                                {/* <div>
                                     <button onClick=
                                         {() => {
                                             close();
@@ -133,7 +135,7 @@ const PlanCreate = () => {
                                         }}>
                                             Close modal
                                     </button>
-                                </div>
+                                </div> */}
                             </form>
                             </div>
                     )

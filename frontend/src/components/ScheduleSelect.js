@@ -29,30 +29,11 @@ const ScheduleSelect= () => {
     const onSettingChange = e => setSettings({ ...settings, [e.target.name]: e.target.value });
 
     return (
-        <div>
-        <Popup trigger={<button>Select Avaliablities</button>} modal="nested">
+        <div className='container'>
+        <Popup trigger={<button className='popup'>Avaliablities</button>} modal="nested">
             {
                 close => (
-                    <div>
-                        {/* <div className='settings'> */}
-                            
-
-
-                        {/* <div className='form-group'>  
-                            <label>End Time</label>                          
-                            <input 
-                                className='form-control'
-                                type='number'
-                                placeholder='End time'
-                                min='0'
-                                max='24'
-                                name='max_time'
-                                value={max_time}
-                                onChange={e => onSettingChange(e)}
-                            />
-                        </div> */}
-
-                        {/* </div> */}
+                    <div className='schedule-container'>
                         <div className='header'> 
                             <h1> When are you free? </h1>
                         </div>
@@ -65,12 +46,12 @@ const ScheduleSelect= () => {
                             />
                         </div>
 
-                        <button className='btn btn-primary' onClick={Submit}>Submit</button>
-                        <div>
+                        <button className='form-btn' onClick={Submit}>Submit</button>
+                        {/* <div>
                             <button onClick={() => close()}>
                                 Close modal
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 )
             }
