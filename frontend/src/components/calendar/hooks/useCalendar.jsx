@@ -27,7 +27,7 @@ export function useCalendar() {
     startDate: "2022-10-18T00:00:00",
     endDate: "2022-10-18T24:00:00",
     isBaseTimeFormat: true,
-    theme
+    theme,
   });
 
   const handleFetchResources = React.useCallback(async () => {
