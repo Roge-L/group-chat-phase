@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^2.0.0",
     "@babel/core": "^7.20.12",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "core-js": "^3.27.2",
+    "node": "^19.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-schedule-selector": "^3.0.0",

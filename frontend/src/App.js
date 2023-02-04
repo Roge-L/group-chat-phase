@@ -3,6 +3,8 @@ import './App.css';
 import DatePicker from './components/DatePicker';
 import DayAvailability from './components/DayAvailability';
 import Contacts from './layout/Contacts';
+import LoginButton from './components/Login';
+import LogoutButton from './components/Logout';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       </header>
 
       <div className="sidebar">
+        <LoginButton />
+        {/* <LogoutButton /> */}
       </div>
 
       <div className="main">

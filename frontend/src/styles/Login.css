@@ -1,0 +1,10 @@
+.login {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+button {
+    font-size: 20px;
+}
