@@ -10,7 +10,12 @@
     box-sizing: border-box;
     background: #FFFFFF;
 
-    border: 2px solid #18A0FB;
+    /* border: 2px solid #18A0FB; */
+}
+
+.popup:hover {
+    background: #f0f0f0;
+    cursor: pointer;
 }
 
 .popup-content {
@@ -68,4 +73,9 @@ button {
     border-radius: 6px;
 
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.form-btn:hover {
+    background: #0C7AF3;
+    cursor: pointer;
 }
