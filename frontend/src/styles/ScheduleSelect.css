@@ -6,6 +6,19 @@
     margin: auto;
     margin-top: 40px;
     align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.selector {
+    height: 500px;
+    overflow-y: scroll;
+
+}
+
+h1 {
+    font-size: 30px;
+    margin: auto;
 }
 
 .form-group {

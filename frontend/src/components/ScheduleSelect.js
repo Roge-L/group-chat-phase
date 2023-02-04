@@ -34,22 +34,11 @@ const ScheduleSelect= () => {
             {
                 close => (
                     <div>
-                        <div className='settings'>
-                        {/* <div className='form-group'>
-                            <label>Start Time</label>                          
-                            <input 
-                                className='form-control'
-                                type='number'
-                                placeholder='Start time'
-                                min='0'
-                                max='24'
-                                name='min_time'
-                                value={min_time}
-                                onChange={e => onSettingChange(e)}
-                            />
-                        </div> */}
+                        {/* <div className='settings'> */}
+                            
 
-                        <div className='form-group'>  
+
+                        {/* <div className='form-group'>  
                             <label>End Time</label>                          
                             <input 
                                 className='form-control'
@@ -57,18 +46,21 @@ const ScheduleSelect= () => {
                                 placeholder='End time'
                                 min='0'
                                 max='24'
-                                name='min_time'
+                                name='max_time'
                                 value={max_time}
                                 onChange={e => onSettingChange(e)}
                             />
-                        </div>
+                        </div> */}
 
+                        {/* </div> */}
+                        <div className='header'> 
+                            <h1> When are you free? </h1>
                         </div>
                         <div className="selector">
                             <ScheduleSelector
                             selection={schedule}
-                            minTime={min_time}
-                            maxTime={max_time}
+                            minTime={0}
+                            maxTime={24}
                             onChange={onChange}
                             />
                         </div>
