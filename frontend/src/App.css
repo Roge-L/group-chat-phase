@@ -6,31 +6,22 @@
   flex-direction: row;
 }
 
-.sidebar {
-  width: 400px;
-  background-color: #f2f3f7;
-}
-
 .main {
   flex: 1;
   height: 100vh;
-  padding-top: 30px;
-  padding-bottom: 30px;
   display: flex;
   flex-direction: column;
 }
 
-.main-inner {
-  margin: auto;
-  width: 800px;
-  height: calc(100vh - 60px);
+.sidebar {
+  width: 100px;
+  background-color: #f2f3f7;
   display: flex;
   flex-direction: column;
 }
 
-.label {
-  font-size: 20px;
-  color: black;
+.spacer {
+  flex: 1;
 }
 
 /* various optimizations to styling, font clarity, etc. */
