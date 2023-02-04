@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import '../styles/PlanCreate.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import VideoChat from './VideoComponent';
+import { Player } from 'video-react';
+import 'video-react/dist/video-react.css';
 
 const PlanCreate = () => {
     const [formData, setFormData] = useState({
@@ -9,9 +12,13 @@ const PlanCreate = () => {
         date: '',
         start_datetime: '',
         end_datetime: '',
+        videoUrl: '',
+        audioUrl: '',
     });
+    const [vidComplete, setVidComplete] = useState(false);
+    const [vidPopoutOpen, setVidPopoutOpen] = useState(false);
 
-    const { name, date, start_datetime, end_datetime } = formData;
+    const { name, date, start_datetime, end_datetime} = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -19,8 +26,28 @@ const PlanCreate = () => {
         e.preventDefault();
 
         console.log(formData);
-
     };
+
+    const updateVideoUrl = (obj) => {
+        if (obj) {
+            setVidComplete(true);
+            console.log(obj,13412343431)
+            setFormData({ ...formData,
+                videoUrl: obj.video,
+                audioUrl: obj.audio,
+            })
+        }
+    }
+
+    const displayVideoChat = () => {
+        if (vidComplete) {
+            return null;
+        } else {
+            return (
+                <VideoChat setVidUrl={updateVideoUrl}/>
+            )
+        }
+    }
 
     return (
         <div>
@@ -41,6 +68,17 @@ const PlanCreate = () => {
                                         onChange={e => onChange(e)}
                                         required
                                     />
+                                </div>
+                                <div className='container_div_1'>
+                                    {vidComplete && formData.videoUrl && formData.audioUrl &&
+                                    <Player>
+                                        <source src={formData.videoUrl} />
+                                    </Player>
+                                    }
+                                    {vidPopoutOpen && displayVideoChat()}
+                                    <button className='btn btn-primary' onClick={() => setVidPopoutOpen(!vidPopoutOpen)} disabled={vidPopoutOpen}>
+                                        Click to start recording
+                                    </button>
                                 </div>
                                 <div className='form-group'>
                                     <label>Date</label>
@@ -81,7 +119,18 @@ const PlanCreate = () => {
                                 <button className='btn btn-primary' type='submit'>Make Plan</button>
                                 <div>
                                     <button onClick=
-                                        {() => close()}>
+                                        {() => {
+                                            close();
+                                            setFormData({
+                                                name: '',
+                                                date: '',
+                                                start_datetime: '',
+                                                end_datetime: '',
+                                                videoUrl: {},
+                                            });
+                                            setVidComplete(false);
+                                            setVidPopoutOpen(false);
+                                        }}>
                                             Close modal
                                     </button>
                                 </div>
