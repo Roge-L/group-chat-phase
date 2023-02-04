@@ -8,6 +8,7 @@ import LogoutButton from './components/Logout';
 import PlanCreate from './components/PlanCreate';
 import ScheduleSelect from './components/ScheduleSelect';
 import { useAuth0 } from "@auth0/auth0-react";
+import Calendar from './components/calendar/Calendar';
 
 function App() {
   const { user, isAuthenticated } = useAuth0();
@@ -37,6 +38,7 @@ function App() {
           <p className="label">Preferred Times</p>
           {/* <DatePicker></DatePicker> */}
           <DayAvailability></DayAvailability>
+          <Calendar></Calendar>
         </div>
       </div>
 
