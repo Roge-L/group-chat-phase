@@ -26,7 +26,7 @@ function App() {
         <div className="main-inner">
           <p className="label">View Invitee</p>
           <Contacts></Contacts>
-          <p className="label">Prefered Times</p>
+          <p className="label">Preferred Times</p>
           {/* <DatePicker></DatePicker> */}
           <DayAvailability></DayAvailability>
         </div>

@@ -29,7 +29,7 @@ const DayAvailability = () => {
 
     const [schedule, setSchedule] = useState([]);
     const start = 8
-    const nHours = 10
+    const nHours = 20
     const hoursArr =  Array.from(Array(nHours), (_, index) => index + 1).map(n => n + start - 1);
 
     return (

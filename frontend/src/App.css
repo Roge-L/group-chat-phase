@@ -7,7 +7,7 @@
 }
 
 .sidebar {
-  width: 500px;
+  width: 400px;
   background-color: #f2f3f7;
 }
 
@@ -22,8 +22,10 @@
 
 .main-inner {
   margin: auto;
-  width: 1200px;
+  width: 800px;
   height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
 }
 
 .label {
@@ -48,7 +50,7 @@
 
 /* width */
 ::-webkit-scrollbar{
-  width: 12px;
+  width: 8px;
 }
 
 /* Track */
@@ -58,11 +60,12 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb{
-  background: #888;
-  opacity: 0.5;
+  background: #aeaeae;
+  opacity: 0.3;
+  border-radius: 8px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover{
-  background: #555;
+  background: #717171;
 }
