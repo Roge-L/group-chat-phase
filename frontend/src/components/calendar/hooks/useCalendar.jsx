@@ -18,12 +18,11 @@ export function useCalendar() {
   const { getEpgProps, getLayoutProps } = useEpg({
     channels: channelsData,
     epg: epgData,
-    dayWidth: 7200,
+    dayWidth: 3600,
     sidebarWidth: 100,
     itemHeight: 80,
     isSidebar: true,
     isTimeline: true,
-    isLine: true,
     startDate: "2022-10-18T00:00:00",
     endDate: "2022-10-18T24:00:00",
     isBaseTimeFormat: true,

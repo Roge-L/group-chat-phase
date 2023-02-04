@@ -11,3 +11,8 @@
 .planby {
   padding: 0px !important;
 }
+
+.channel-item-label {
+  color: #a0aec0;
+  font-size: 14px;
+}

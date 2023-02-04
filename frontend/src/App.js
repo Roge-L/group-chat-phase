@@ -9,7 +9,7 @@ import Calendar from './components/calendar/Calendar';
 
 function App() {
   const { user, isAuthenticated } = useAuth0();
-
+  
   return (
     <div className="app">
 
