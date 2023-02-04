@@ -19,11 +19,15 @@ function App() {
       </header>
 
       <div className="sidebar">
-        {isAuthenticated ? (<LogoutButton />) :
+        {isAuthenticated ? (
+        <>
+          <LogoutButton />
+          <PlanCreate />
+          <ScheduleSelect />
+        </>
+        ) :
         (<LoginButton />)
         }
-        <PlanCreate />
-        <ScheduleSelect />
       </div>
 
       <div className="main">
