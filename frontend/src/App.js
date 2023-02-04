@@ -5,6 +5,8 @@ import DayAvailability from './components/DayAvailability';
 import Contacts from './layout/Contacts';
 import LoginButton from './components/Login';
 import LogoutButton from './components/Logout';
+import PlanCreate from './components/PlanCreate';
+import ScheduleSelect from './components/ScheduleSelect';
 import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         {isAuthenticated ? (<LogoutButton />) :
         (<LoginButton />)
         }
+        <PlanCreate />
+        <ScheduleSelect />
       </div>
 
       <div className="main">
