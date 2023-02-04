@@ -1,7 +1,8 @@
+import React from 'react';
 import './App.css';
 import DatePicker from './components/DatePicker';
+import DayAvailability from './components/DayAvailability';
 import Contacts from './layout/Contacts';
-import Calendar from './layout/Calendar';
 
 function App() {
   return (
@@ -10,16 +11,16 @@ function App() {
       <header className="header">
       </header>
 
-      <sidebar className="sidebar">
-      </sidebar>
+      <div className="sidebar">
+      </div>
 
       <div className="main">
         <div className="main-inner">
-          <p className="label">Choose an invitee</p>
+          <p className="label">View Invitee</p>
           <Contacts></Contacts>
-          <p className="label">View Date</p>
-          <DatePicker></DatePicker>
-          <Calendar></Calendar>
+          <p className="label">Prefered Times</p>
+          {/* <DatePicker></DatePicker> */}
+          <DayAvailability></DayAvailability>
         </div>
       </div>
 

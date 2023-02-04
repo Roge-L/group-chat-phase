@@ -13,11 +13,17 @@
 
 .main {
   flex: 1;
+  height: 100vh;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-inner {
   margin: auto;
-  max-width: 1200px;
+  width: 1200px;
+  height: calc(100vh - 60px);
 }
 
 .label {

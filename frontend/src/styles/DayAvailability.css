@@ -1,0 +1,37 @@
+.entry-outer {
+    width: 100%;
+    height: 100px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+}
+
+.entry-outer-time {
+    font-size: 16px;
+    line-height: 16px;
+    width: 60px;
+    color: #636f82;
+}
+
+.entry-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.entry-inner-line {
+    height: 8px;
+    border-bottom: 2px solid #f2f3f7;
+}
+
+.entry-inner-wrapper {
+    margin-top: 8px;
+    background-color: #f2f3f7;
+    height: calc(100% - 12px);
+    border-radius: 16px;
+}
+
+.day-availability-main {
+    flex: 1;
+    overflow-y: scroll;
+}
