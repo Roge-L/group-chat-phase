@@ -5,8 +5,11 @@ import DayAvailability from './components/DayAvailability';
 import Contacts from './layout/Contacts';
 import LoginButton from './components/Login';
 import LogoutButton from './components/Logout';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
+  const { user, isAuthenticated } = useAuth0();
+
   return (
     <div className="app">
 
@@ -14,8 +17,9 @@ function App() {
       </header>
 
       <div className="sidebar">
-        <LoginButton />
-        {/* <LogoutButton /> */}
+        {isAuthenticated ? (<LogoutButton />) :
+        (<LoginButton />)
+        }
       </div>
 
       <div className="main">
