@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../styles/PlanCreate.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import VideoChat from './VideoComponent';
-import { Player } from 'video-react';
+import { Player, ControlBar } from 'video-react';
 import 'video-react/dist/video-react.css';
 
 const PlanCreate = () => {
@@ -17,6 +17,8 @@ const PlanCreate = () => {
     });
     const [vidComplete, setVidComplete] = useState(false);
     const [vidPopoutOpen, setVidPopoutOpen] = useState(false);
+    const vidPlayer = useRef(null);
+    const audPlayer = useRef(null);
 
     const { name, date, start_datetime, end_datetime} = formData;
 
@@ -71,9 +73,24 @@ const PlanCreate = () => {
                                 </div>
                                 <div className='container_div_1'>
                                     {vidComplete && formData.videoUrl && formData.audioUrl &&
-                                    <Player>
-                                        <source src={formData.videoUrl} />
-                                    </Player>
+                                    <div>
+                                        <button onClick={() => {
+                                            vidPlayer.current.play();
+                                            audPlayer.current.play();
+                                        }}>PREVIEW VIDEO</button>
+                                        <Player
+                                            ref={vidPlayer}
+                                            src={formData.videoUrl}
+                                        >
+                                            <ControlBar/>
+                                        </Player>
+                                        <div style={{display: "none"}}>
+                                            <Player
+                                                ref={audPlayer}
+                                                src={formData.audioUrl}
+                                            />
+                                        </div>
+                                    </div>
                                     }
                                     {vidPopoutOpen && displayVideoChat()}
                                     <button className='btn btn-primary' onClick={() => setVidPopoutOpen(!vidPopoutOpen)} disabled={vidPopoutOpen}>
