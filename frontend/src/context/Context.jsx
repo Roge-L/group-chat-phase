@@ -5,11 +5,14 @@ const globalState = {
       0: {
         plans: [
           {id: 0, since: "2022-10-18T08:30:00", till: "2022-10-18T10:15:00", title: "example plan 1", description: "this is a test plan", 
-          channelUuid: "Sat Feb 04 2023", votes: 5},
+          channelUuid: "Sat Feb 04 2023", votes: 5, twilioVidUrl: "dancing.mp4",
+          twilioAudUrl: "dancing.mp4"},
           {id: 1, since: "2022-10-18T10:25:00", till: "2022-10-18T12:25:00", title: "example plan 2", description: "this is a test plan", 
-          channelUuid: "Sat Feb 04 2023", votes: 5},
+          channelUuid: "Sat Feb 04 2023", votes: 5, twilioVidUrl: "dancing.mp4",
+          twilioAudUrl: "dancing.mp4"},
           {id: 2, since: "2022-10-18T13:00:00", till: "2022-10-18T14:30:00", title: "example plan 3", description: "this is a test plan", 
-          channelUuid: "Sat Feb 04 2023", votes: 5},
+          channelUuid: "Sat Feb 04 2023", votes: 5, twilioVidUrl: "dancing.mp4",
+          twilioAudUrl: "dancing.mp4"},
           // {id: 3, since: "2022-10-18T13:00:00", till: "2022-10-18T14:30:00", title: "example plan 3", description: "this is a test plan", 
           // channelUuid: "Sun Feb 05 2023", votes: 5},
         ]

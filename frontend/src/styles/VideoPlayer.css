@@ -1,0 +1,15 @@
+.player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.player-player {
+  height: 300px;
+  width: 1000px;
+}
+
+.player-invisible {
+  display: none;
+}

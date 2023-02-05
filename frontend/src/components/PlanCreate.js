@@ -3,9 +3,10 @@ import '../styles/PlanCreate.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import VideoChat from './VideoComponent';
-import { Player, ControlBar } from 'video-react';
+import VideoPlayer from './VideoComponent/VideoPlayer';
 import 'video-react/dist/video-react.css';
 import EventIcon from '@mui/icons-material/Event';
+import { Button } from '@mui/material';
 
 const PlanCreate = () => {
     const [formData, setFormData] = useState({
@@ -16,10 +17,11 @@ const PlanCreate = () => {
         videoUrl: '',
         audioUrl: '',
     });
-    const [vidComplete, setVidComplete] = useState(false);
+    const [vidComplete, setVidComplete] = useState(formData.videoUrl && formData.audioUrl);
     const [vidPopoutOpen, setVidPopoutOpen] = useState(false);
     const vidPlayer = useRef(null);
     const audPlayer = useRef(null);
+    const popup = useRef(null);
 
     const { name, date, start_datetime, end_datetime} = formData;
 
@@ -27,14 +29,42 @@ const PlanCreate = () => {
 
     const onSubmit = e => {
         e.preventDefault();
+        // notify everybody else
+        const notifyPerson = async(message, destination) => {
+            const data = await fetch("/text", {
+                method: "POST",
+                body: JSON.stringify({
+                message: message,
+                phone: destination,
+                }),
+                headers: {
+                "Content-Type": "application/json",
+                },
+            }).then((res) => res.json());
+            return data
+        }
 
+        let peopleToMessage = [{phone: "+17802338178"}];
+        const message = `check this out! ${formData.videoUrl}`;
+        //TODO: connect api call to real data from context, uncomment out the following line
+        peopleToMessage.forEach(person => notifyPerson(message, person.phone).then(res => console.log(res)));
+        
         console.log(formData);
+        popup.current.close();
+        setFormData({
+            name: '',
+            date: '',
+            start_datetime: '',
+            end_datetime: '',
+            videoUrl: {},
+        });
+        setVidComplete(false);
+        setVidPopoutOpen(false);
     };
 
     const updateVideoUrl = (obj) => {
         if (obj) {
             setVidComplete(true);
-            console.log(obj,13412343431)
             setFormData({ ...formData,
                 videoUrl: obj.video,
                 audioUrl: obj.audio,
@@ -54,107 +84,109 @@ const PlanCreate = () => {
 
     return (
         <div className='container'>
-            <Popup trigger={<button className='log_button'><EventIcon /></button>} modal="nested">
+            <Popup trigger={<button className='log_button'><EventIcon /></button>} modal="nested" ref={popup}>
                 {
                     close => (
                             <div className='form-container'>
-                            <h1 className='title'>Plan</h1>
-                            <h3 className='header'>Create a Plan</h3>
-                            <form onSubmit={e => onSubmit(e)}>
-                                <div className='form-group'>
-                                    <input
-                                        className='form-control'
-                                        type='name'
-                                        placeholder='Plan Name'
-                                        name='name'
-                                        value={name}
-                                        onChange={e => onChange(e)}
-                                        required
-                                    />
-                                </div>
-                                <div className='container_div_1'>
-                                    {vidComplete && formData.videoUrl && formData.audioUrl &&
-                                    <div>
-                                        <button onClick={() => {
-                                            vidPlayer.current.play();
-                                            audPlayer.current.play();
-                                        }}>PREVIEW VIDEO</button>
-                                        <Player
-                                            ref={vidPlayer}
-                                            src={formData.videoUrl}
-                                        >
-                                            <ControlBar/>
-                                        </Player>
-                                        <div style={{display: "none"}}>
-                                            <Player
-                                                ref={audPlayer}
-                                                src={formData.audioUrl}
-                                            />
-                                        </div>
+                                <h1 className='title'>Plan</h1>
+                                <h3 className='header'>Create a Plan</h3>
+                                <form onSubmit={e => onSubmit(e)}>
+                                    <div className='form-group'>
+                                        <input
+                                            className='form-control'
+                                            type='name'
+                                            placeholder='Plan Name'
+                                            name='name'
+                                            value={name}
+                                            onChange={e => onChange(e)}
+                                            required
+                                        />
                                     </div>
-                                    }
-                                    {vidPopoutOpen && displayVideoChat()}
-                                    <button className='btn btn-primary' onClick={() => setVidPopoutOpen(!vidPopoutOpen)} disabled={vidPopoutOpen}>
-                                        Click to start recording
-                                    </button>
-                                </div>
-                                <div className='form-group'>
-                                    <label className='form-label'>Date</label>
-                                    <input
-                                        className='form-control'
-                                        type='date'
-                                        placeholder='Date'
-                                        name='date'
-                                        value={date}
-                                        onChange={e => onChange(e)}
-                                        required
-                                    />
-                                </div>
-                                <div className='form-group'>
-                                    <label className='form-label'>Start Time</label>
-                                    <input
-                                        className='form-control'
-                                        type='time'
-                                        placeholder='Start Time'
-                                        name='start_datetime'
-                                        value={start_datetime}
-                                        onChange={e => onChange(e)}
-                                        required
-                                    />
-                                </div>
-                                <div className='form-group'>
-                                    <label className='form-label'>End Time</label>
-                                    <input
-                                        className='form-control'
-                                        type='time'
-                                        placeholder='End Time'
-                                        name='end_datetime'
-                                        value={end_datetime}
-                                        onChange={e => onChange(e)}
-                                    />
+                                    <div className='form-video-div'>
+                                        {vidComplete && formData.videoUrl && formData.audioUrl &&
+                                            <VideoPlayer 
+                                                audioRef={audPlayer}
+                                                videoRef={vidPlayer}
+                                                audioUrl={formData.audioUrl}
+                                                videoUrl={formData.videoUrl}
+                                            />
+                                        }
+                                        {vidPopoutOpen && displayVideoChat()}
+                                        {!vidPopoutOpen &&
+                                            <Button className="form-video-button" onClick={() => setVidPopoutOpen(true)}>
+                                                Click to start recording
+                                            </Button>
+                                        }
+                                        { vidComplete && formData.videoUrl && formData.audioUrl &&
+                                            <Button className="form-video-button" onClick={() => {
+                                                setVidPopoutOpen(false)
+                                                setFormData({
+                                                    ...formData,
+                                                    videoUrl: "",
+                                                    audioUrl: "",
+                                                });
+                                            }}>
+                                                Try again
+                                            </Button>
+                                        }
+                                    </div>
+                                    <div className='form-group'>
+                                        <label className='form-label'>Date</label>
+                                        <input
+                                            className='form-control'
+                                            type='date'
+                                            placeholder='Date'
+                                            name='date'
+                                            value={date}
+                                            onChange={e => onChange(e)}
+                                            required
+                                        />
+                                    </div>
+                                    <div className='form-group'>
+                                        <label className='form-label'>Start Time</label>
+                                        <input
+                                            className='form-control'
+                                            type='time'
+                                            placeholder='Start Time'
+                                            name='start_datetime'
+                                            value={start_datetime}
+                                            onChange={e => onChange(e)}
+                                            required
+                                        />
+                                    </div>
+                                    <div className='form-group'>
+                                        <label className='form-label'>End Time</label>
+                                        <input
+                                            className='form-control'
+                                            type='time'
+                                            placeholder='End Time'
+                                            name='end_datetime'
+                                            value={end_datetime}
+                                            onChange={e => onChange(e)}
+                                        />
 
-                                </div>
-                                <div className='form-group'>
-                                    <button className='form-btn' type='submit'>Make Plan</button>
-                                </div>
-                                {/* <div>
-                                    <button onClick=
-                                        {() => {
-                                            close();
-                                            setFormData({
-                                                name: '',
-                                                date: '',
-                                                start_datetime: '',
-                                                end_datetime: '',
-                                                videoUrl: {},
-                                            });
-                                            setVidComplete(false);
-                                            setVidPopoutOpen(false);
-                                        }}>
-                                            Close modal
-                                    </button>
-                                </div> */}
-                            </form>
+                                    </div>
+                                    <div className='form-group'>
+                                        <Button className='form-btn' type='submit'>Make Plan</Button>
+                                    </div>
+                                    {/* <div>
+                                        <button onClick=
+                                            {() => {
+                                                close();
+                                                setFormData({
+                                                    name: '',
+                                                    date: '',
+                                                    start_datetime: '',
+                                                    end_datetime: '',
+                                                    videoUrl: {},
+                                                });
+                                                setVidComplete(false);
+                                                setVidPopoutOpen(false);
+                                            }}>
+                                                Close modal
+                                        </button>
+                                    </div> */}
+                                </form>
                             </div>
                     )
                 }

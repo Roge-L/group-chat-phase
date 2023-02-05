@@ -45,3 +45,8 @@
 .plan-description {
     font-size: 16px;
 }
+
+.plan-video {
+    width: auto;
+    height: auto;
+}

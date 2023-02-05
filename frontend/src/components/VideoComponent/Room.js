@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Participant from "./Participant";
+import { Button } from '@mui/material';
+import "./../../styles/Room.css"
 
 const Room = ({ roomName, room, handleLogout }) => {
   const [participants, setParticipants] = useState([]);
@@ -29,9 +31,9 @@ const Room = ({ roomName, room, handleLogout }) => {
   ));
 
   return (
-    <div className="room">
+    <div className="room-container">
       <h2>Room: {roomName}</h2>
-      <button onClick={handleLogout}>Finish Recording</button>
+      <Button onClick={handleLogout}>Finish Recording</Button>
       <div className="local-participant">
         {room ? (
           <Participant
