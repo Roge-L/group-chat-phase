@@ -10,7 +10,7 @@ import Timeline from './components/Timeline';
 import ChannelItem from './components/ChannelItem';
 import ProgramItem from './components/ProgramItem';
 
-function App() {
+function Calendar() {
   const { isLoading, getEpgProps, getLayoutProps } = useCalendar();
 
   return (
@@ -32,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default Calendar;

@@ -5,7 +5,7 @@ import LogoutButton from './components/Logout';
 import PlanCreate from './components/PlanCreate';
 import ScheduleSelect from './components/ScheduleSelect';
 import { useAuth0 } from "@auth0/auth0-react";
-import Calendar from './components/Calendar/Calendar';
+import Calendar from './components/calendar/Calendar';
 import Plans from './components/Plans/Plans';
 import Availability from './components/Availability';
 
