@@ -1,13 +1,25 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
-
 .calendar-main {
-  height: 100vh; 
-  width: calc(100vw - 100px);
+  height: 800px;
+  width: calc(100vw - 160px);
+  background-color: #f2f3f7;
+  border-radius: 16px;
+  margin-top: 20px;
+  padding: 25px;
+  overflow: hidden;
 }
 
 .planby {
   padding: 0px !important;
+}
+
+.channel-item-label {
+  color: #a0aec0;
+  font-size: 14px;
+}
+
+.calendar-header {
+  font-size: 28px;
+  font-weight: bold;
+  padding-bottom: 20px;
+  color: #525252;
 }

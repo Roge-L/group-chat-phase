@@ -5,8 +5,10 @@ import LogoutButton from "./components/Logout";
 import PlanCreate from "./components/PlanCreate";
 import ScheduleSelect from "./components/ScheduleSelect";
 import { useAuth0 } from "@auth0/auth0-react";
-import Calendar from "./components/calendar/Calendar";
+import Calendar from "./components/Calendar/Calendar";
 import { appwriteDatabase } from "./utils/utils";
+import Plans from "./components/Plans/Plans";
+import Availability from "./components/Availability";
 
 function App() {
   const { user, isAuthenticated } = useAuth0();
@@ -28,7 +30,6 @@ function App() {
           <>
             <LogoutButton />
             <PlanCreate />
-            <ScheduleSelect />
           </>
         ) : (
           <LoginButton />
@@ -36,6 +37,10 @@ function App() {
       </div>
 
       <div className="main">
+        <div className="main-container">
+          <Plans></Plans>
+          <Availability></Availability>
+        </div>
         <Calendar></Calendar>
       </div>
     </div>

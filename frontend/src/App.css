@@ -7,10 +7,16 @@
 }
 
 .main {
-  flex: 1;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  padding: 30px;
+  /* background-color: #f3f3f3; */
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .sidebar {
@@ -34,6 +40,7 @@
   -webkit-text-stroke: .025em rgba(51,51,51,0.1);
   
   box-sizing: border-box;
+  /* font-size: 0px; */
 }
 
 /* scrollbar stuff */

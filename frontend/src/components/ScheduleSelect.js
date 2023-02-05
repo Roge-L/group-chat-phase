@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import ScheduleSelector from 'react-schedule-selector';
 import Popup from 'reactjs-popup';
+import ScheduleIcon from '@mui/icons-material/Schedule';
 import 'reactjs-popup/dist/index.css';
-import '../styles/ScheduleSelect.css'
+import '../styles/ScheduleSelect.css';
+import '../styles/ScheduleSelect.css';
 
 const ScheduleSelect= () => {
 
@@ -30,7 +32,7 @@ const ScheduleSelect= () => {
 
     return (
         <div className='container'>
-        <Popup trigger={<button className='popup'>Avaliablities</button>} modal="nested">
+        <Popup trigger={<button className='log_button'><ScheduleIcon/></button>} modal="nested">
             {
                 close => (
                     <div className='schedule-container'>

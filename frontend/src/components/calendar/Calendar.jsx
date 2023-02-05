@@ -15,16 +15,17 @@ function App() {
 
   return (
     <div className="calendar-main">
+      <div className="calendar-header"> Group Availability</div>
       <Epg isLoading={isLoading} {...getEpgProps()}>
         <Layout
           {...getLayoutProps()}
-          renderTimeline={(props) => <Timeline {...props} />}
           renderProgram={({ program, ...rest }) => (
             <ProgramItem key={program.data.id} program={program} {...rest} />
           )}
           renderChannel={({ channel }) => (
             <ChannelItem key={channel.uuid} channel={channel} />
           )}
+          renderTimeline={(props) => <Timeline {...props} />}
         />
       </Epg>
     </div>
