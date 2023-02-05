@@ -5,6 +5,7 @@ import 'reactjs-popup/dist/index.css';
 import VideoChat from './VideoComponent';
 import { Player, ControlBar } from 'video-react';
 import 'video-react/dist/video-react.css';
+import EventIcon from '@mui/icons-material/Event';
 
 const PlanCreate = () => {
     const [formData, setFormData] = useState({
@@ -53,7 +54,7 @@ const PlanCreate = () => {
 
     return (
         <div className='container'>
-            <Popup trigger={<button className='popup'>Make Plan</button>} modal="nested">
+            <Popup trigger={<button className='log_button'><EventIcon /></button>} modal="nested">
                 {
                     close => (
                             <div className='form-container'>
