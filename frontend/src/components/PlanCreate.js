@@ -21,6 +21,7 @@ const PlanCreate = () => {
     const [vidPopoutOpen, setVidPopoutOpen] = useState(false);
     const vidPlayer = useRef(null);
     const audPlayer = useRef(null);
+    const popup = useRef(null);
 
     const { name, date, start_datetime, end_datetime} = formData;
 
@@ -28,8 +29,37 @@ const PlanCreate = () => {
 
     const onSubmit = e => {
         e.preventDefault();
+        // notify everybody else
+        const notifyPerson = async(message, destination) => {
+            const data = await fetch("/text", {
+                method: "POST",
+                body: JSON.stringify({
+                message: message,
+                phone: destination,
+                }),
+                headers: {
+                "Content-Type": "application/json",
+                },
+            }).then((res) => res.json());
+            return data
+        }
 
+        let peopleToMessage = [{phone: "+17802338178"}];
+        const message = `check this out! ${formData.videoUrl}`;
+        //TODO: connect api call to real data from context, uncomment out the following line
+        peopleToMessage.forEach(person => notifyPerson(message, person.phone).then(res => console.log(res)));
+        
         console.log(formData);
+        popup.current.close();
+        setFormData({
+            name: '',
+            date: '',
+            start_datetime: '',
+            end_datetime: '',
+            videoUrl: {},
+        });
+        setVidComplete(false);
+        setVidPopoutOpen(false);
     };
 
     const updateVideoUrl = (obj) => {
@@ -54,7 +84,7 @@ const PlanCreate = () => {
 
     return (
         <div className='container'>
-            <Popup trigger={<button className='log_button'><EventIcon /></button>} modal="nested">
+            <Popup trigger={<button className='log_button'><EventIcon /></button>} modal="nested" ref={popup}>
                 {
                     close => (
                             <div className='form-container'>

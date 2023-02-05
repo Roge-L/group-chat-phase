@@ -63,9 +63,9 @@ button {
 }
 
 .form-video-div {
-    display: table-cell;
-    vertical-align: middle;
-    height: 300px;
-    width: 620px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     text-align: center;
+    align-items: center;
 }
