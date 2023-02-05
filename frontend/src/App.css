@@ -7,12 +7,16 @@
 }
 
 .main {
-  flex: 1;
   height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 30px;
-  background-color: #f3f3f3;
+  /* background-color: #f3f3f3; */
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .sidebar {

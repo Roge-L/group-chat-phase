@@ -1,6 +1,21 @@
+.plans-main {
+    flex: 1;
+    padding: 25px;
+    background-color: #f2f3f7;
+    border-radius: 16px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
 .plans-header {
     font-size: 28px;
     font-weight: bold;
     padding-bottom: 20px;
     color: #525252;
+}
+
+.plans-container {
+    overflow: auto;
+    flex: 1;
 }

@@ -13,9 +13,12 @@ const Plans = () => {
     <div className="plans-main">
       <div className="plans-header">Your Plans</div>
 
-      {plans.map(args => 
-        <Plan {...args}></Plan>
-      )}
+      <div className="plans-container">
+        {plans.map(args => 
+          <Plan {...args} key={args.id}></Plan>
+        )}
+      </div>
+
     </div>
   );
 }

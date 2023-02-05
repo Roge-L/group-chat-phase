@@ -7,6 +7,7 @@
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
+    min-height: min-content;
 }
 
 .plan-arrows {

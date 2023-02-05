@@ -1,11 +1,11 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
-
 .calendar-main {
-  height: 50vh; 
+  height: 800px;
   width: calc(100vw - 160px);
+  background-color: #f2f3f7;
+  border-radius: 16px;
+  margin-top: 20px;
+  padding: 25px;
+  overflow: hidden;
 }
 
 .planby {
