@@ -15,6 +15,7 @@ function App() {
 
   return (
     <div className="calendar-main">
+      <div className="calendar-header"> Group Availability</div>
       <Epg isLoading={isLoading} {...getEpgProps()}>
         <Layout
           {...getLayoutProps()}

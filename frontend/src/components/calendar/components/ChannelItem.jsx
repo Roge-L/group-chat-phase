@@ -1,6 +1,7 @@
 import React from 'react';
-import { ChannelBox, ChannelLogo } from "planby";
+import { ChannelBox } from "planby";
 import '../../../styles/Calendar.css'
+import Upvote from 'react-upvote';
 
 const ChannelItem = ({ channel }) => {
   const { position, label } = channel;

@@ -1,0 +1,46 @@
+.plan-main {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.plan-arrows {
+    margin-right: 20px;
+}
+
+.plan-arrows svg {
+    cursor: pointer;
+    font-size: 18px;
+    color: #ababab;
+}
+
+.plan-arrows div {
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.plan-vote-count {
+    color: #747474;
+    font-weight: bold
+}
+
+.plan-body {
+    flex: 1;
+}
+
+.plan-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #525252;
+    margin-bottom: 10px;
+}
+
+.plan-description {
+    font-size: 16px;
+}

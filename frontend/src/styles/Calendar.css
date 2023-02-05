@@ -4,8 +4,8 @@
 }
 
 .calendar-main {
-  height: 100vh; 
-  width: calc(100vw - 100px);
+  height: 50vh; 
+  width: calc(100vw - 160px);
 }
 
 .planby {
@@ -15,4 +15,11 @@
 .channel-item-label {
   color: #a0aec0;
   font-size: 14px;
+}
+
+.calendar-header {
+  font-size: 28px;
+  font-weight: bold;
+  padding-bottom: 20px;
+  color: #525252;
 }
