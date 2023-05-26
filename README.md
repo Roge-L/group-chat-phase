@@ -1,6 +1,8 @@
 # GroupChatPhase
 Make video proposals to schedule and vote on hangout times.
 
+[![Video Demo](https://img.youtube.com/vi/l66BQ4fSQRg/0.jpg)](https://youtu.be/l66BQ4fSQRg)
+
 ## Inspiration
 GroupChatPhase was born out of our personal frustration with the lack of accountability and creativity in scheduling time with friends. We saw an opportunity to create a platform that not only makes it easy to plan hangouts, but also adds a fun and personal element to the experience.
 
